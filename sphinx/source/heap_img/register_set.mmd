@@ -1,0 +1,19 @@
+    classDiagram
+    class my_app["MyQuantumApp"]
+    class reg_set["MyRegisterSet"]
+    class areg["a: QuantumRegister"]
+    class breg["b: QuantumRegister"]
+    class reg_set_base["Frame"]
+    class TemporaryQubitAllocator
+    class qc["QuantumCircuit"]
+    class Instruction
+
+    my_app *-- reg_set
+    reg_set *-- areg
+    reg_set *-- breg
+    qc --> areg
+    qc --> breg
+    qc *-- "*" Instruction
+    reg_set --|> reg_set_base
+    reg_set_base *-- TemporaryQubitAllocator
+    reg_set_base *-- qc

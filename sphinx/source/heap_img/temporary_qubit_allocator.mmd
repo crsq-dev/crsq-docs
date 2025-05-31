@@ -1,0 +1,12 @@
+    classDiagram
+    class TemporaryQubitAllocator {
+      + QuantumRegister allocate(n)
+      + free(qreg)
+    }
+    class QuantumCircuit {
+      + add_register(reg)
+    }
+    TemporaryQubitAllocator --> QuantumCircuit
+    TemporaryQubitAllocator *-- "*" QuantumRegister
+    QuantumCircuit *-- "*" QuantumRegister
+    QuantumRegister *-- Qubit

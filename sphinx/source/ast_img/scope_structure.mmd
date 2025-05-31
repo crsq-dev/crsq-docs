@@ -1,0 +1,38 @@
+  classDiagram
+  class Scope {
+    + QuantumValue register(reg)
+    + build_circuits()
+    + build_inverse_circuits()
+  }
+  class _ScopeImp {
+    - Operator operators[]
+  }
+  class Operator {
+    + emit_circuit()
+    + emit_inverse_circuit()
+  }
+  class IAdd_etc["IAdd etc."]
+
+  Scope <|-- _ScopeImp
+  _ScopeImp *-- "*" Operator
+
+  Value <|-- QuantumValue
+
+  QuantumValue <|-- Operator
+
+  Operator <|-- BinaryOp
+
+  BinaryOp <|-- IAdd_etc
+
+  _ScopeImp *-- Frame
+  
+  Frame *-- TemporaryQubitAllocator
+
+  Frame <|-- RegisterSet
+
+  Frame *-- QuantumCircuit
+
+  RegisterSet *-- "*" QuantumRegister
+
+  Operator ..> _ScopeImp
+  Operator ..> QuantumCircuit

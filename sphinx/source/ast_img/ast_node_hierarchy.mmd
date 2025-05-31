@@ -1,0 +1,24 @@
+classDiagram
+
+class QuantumValue {
+-QuantumRegister register
++QuantumValue __iadd__()
++QuantumValue __isub__()
++QuantumValue __mul__()
++QuantumValue __truediv__()
+}
+
+Value <|-- Constant
+Value <|-- QuantumValue
+QuantumValue <|-- Operator
+Operator <|-- SetValueOperator
+QuantumValue <|-- Register
+Operator <|-- BinaryOp
+Operator <|-- UnaryOp
+BinaryOp <|-- IAdd
+BinaryOp <|-- ISub
+BinaryOp <|-- Multiply
+BinaryOp <|-- Divide
+UnaryOp <|-- Absolute
+UnaryOp <|-- Square
+UnaryOp <|-- SquareRoot
